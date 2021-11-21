@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wielowarstwowe aplikacji</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Update message</h1>
+
+    <form th:action="@{/saveMessage}" th:object="${message}" method="post" role="form">
+
+        <div class="container-fluid">
+            <input type="hidden" th:field="*{id}">
+
+            <label><b>Name</b>
+                <br>
+                <input type="text" placeholder="Enter your name" th:field="*{nameOfUser}">
+            </label>
+
+
+            <br>
+
+            <label><b>Message</b>
+                <br>
+                <textarea type="text" rows="5" cols="33" placeholder="Enter message" th:field="*{messageOfUser}"></textarea>
+            </label>
+            <br>
+
+            <button type="submit" class="btn btn-success">Update Message</button>
+        </div>
+
+        <br>
+    </form>
+
+    <a class="btn btn-primary" th:href = "@{/}"> Back to Message List</a>
+</div>
+
+</body>
+
+</html>
