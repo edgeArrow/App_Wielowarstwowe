@@ -57,12 +57,6 @@ public class MessageController {
         return "redirect:/";
     }
 
-    @GetMapping("/messagesByName/{name}")
-    public String AllMessagesByNameOfUser(@PathVariable("name") String name, Model model) {
-        model.addAttribute("allMessages", messageService.getMessagesByName(name));
-        model.addAttribute("messageDto", new MessageDto());
 
-        return "redirect:/messagesByName/{name}";
-    }
 }
 
